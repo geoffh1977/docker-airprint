@@ -6,7 +6,7 @@ license: gnu-gpl-v3.0
 
 # Source Build Variables
 buildImageName: ubuntu
-buildImageVersion: xenial
+buildImageVersion: bionic
 
 # Final Image Variables
 finalImageName: airprint
