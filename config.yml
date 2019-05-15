@@ -1,0 +1,14 @@
+---
+# Docker User
+dockerUser: geoffh1977
+dockerUserEmail: geoffh1977@gmail.com
+license: gnu-gpl-v3.0
+
+# Source Build Variables
+buildImageName: ubuntu
+buildImageVersion: xenial
+
+# Final Image Variables
+finalImageName: airprint
+finalImageVersion: latest
+appName: CUPS Airprint
