@@ -1,0 +1,24 @@
+# CUPS Airprint Container #
+
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/geoffh1977/airprint.svg?style=plastic)
+![GitHub](https://img.shields.io/github/license/geoffh1977/docker-airprint.svg?style=plastic)
+
+## Description ##
+An Ubuntu based CUPS print container that allows for Airprint. For use with printers/networks that don't offer airprint.
+
+## Starting The Container ##
+To start the container and connect it to Avanhi on th host:
+
+```
+docker run --rm --name CupsAirprint -e CUPSADMIN=cupsadmin -e CUPSPASSWORD=cupspassword -v /mnt/tank/docker/cups-airprint/config:/config -v /etc/avahi/services:/services -p 631:631 cups-airprint
+```
+
+## Notes
+* CUPS doesn't like printers.conf being mounted directly as it appears to delete/recreate it with changes, so we copy it in on start and then watch for it to change to make a backup of it.
+* Watching for the printers.conf file changing also triggers generating the Avahi services. Thanks to @thfontaine for the script! <https://github.com/tjfontaine/airprint-generate>
+
+## Building The CUPS Airprint Container ##
+After cloning the repository, simply execute the _make build_ command while in the repository root path to execute a docker build of the current Dockerfile. The Makefile contains a number of useful commands which perform different actions.
+
+### Getting In Contact ###
+If you find any issues with this container or want to recommend some improvements, fell free to get in contact with me or submit pull requests on github.
